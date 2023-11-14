@@ -1,7 +1,12 @@
 import { NotFoundError, Elysia } from 'elysia'
 
 import { readdir, stat } from 'fs/promises'
-import { resolve, resolve as resolveFn, join } from 'path'
+import path from 'path'
+
+//
+const { resolve, join } = path;
+const resolveFn = resolve;
+
 
 const listFiles = async (dir: string): Promise<string[]> => {
     const files = await readdir(dir)
